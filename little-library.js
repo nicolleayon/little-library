@@ -126,13 +126,5 @@ function Main(){
 }
 
 
-/* TESTS */
+// RUN PROGRAM
 Main();
-// addBook("Brown Bear", "", 1);
-// addBook("The Little Prince", "", 0);
-// addBook("Andrew Henry's Meadow");
-// printBookList(); 
-// console.log();
-// toggleAvailability("Andrew Henry's Meadow");
-// printBookList(); 
-// console.log(bookList);

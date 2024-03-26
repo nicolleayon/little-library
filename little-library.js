@@ -6,6 +6,13 @@ class Book {
         this.author = author, 
         this.isAvailable = isAvailable
     }
+
+    getIsAvailable() {
+        if(isAvailable === 0 ) {
+            return "checked out";
+        }
+        return "on shelf";
+    }
 }
 
 //helper function for addBooks
@@ -22,3 +29,6 @@ function addBooks (bookTitle, bookAuthor, isBookAvailable) {
     bookList.set(newBook);
 }
 
+function printBookList () {
+
+}

@@ -1,4 +1,5 @@
-const bookList = new Map(); 
+// console.log("Hello");
+const bookList = new Array(); 
 
 class Book {
     constructor(title, author, isAvailable = 0) {
@@ -8,10 +9,14 @@ class Book {
     }
 
     getIsAvailable() {
-        if(isAvailable === 0 ) {
+        if(this.isAvailable === 0 ) {
             return "checked out";
         }
         return "on shelf";
+    }
+
+    getBookTitle() {
+        return this.title;
     }
 }
 
@@ -25,10 +30,20 @@ function createBook(title, author, isAvailable) {
 function addBooks (bookTitle, bookAuthor, isBookAvailable) {
     //creat new book 
     //add book to map 
-    let newBook = createBook(bookTitle, bookAuthor, isBookAvailable)
-    bookList.set(newBook);
+    let newBook = createBook(bookTitle, bookAuthor, isBookAvailable);
+    bookList.push(newBook);
 }
 
 function printBookList () {
-
+      
+    bookList.forEach((book) => {
+        console.log(book.getBookTitle() + ", " + book.getIsAvailable());
+    });
 }
+
+
+// addBooks 
+
+addBooks("Brown Bear", "", 1);
+addBooks("The Little Prince", "", 0);
+printBookList(); 

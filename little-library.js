@@ -2,7 +2,7 @@
 const bookList = new Array(); 
 
 class Book {
-    constructor(title, author, isAvailable = 0) {
+    constructor(title, author, isAvailable = 1) {
         this.title  = title, 
         this.author = author, 
         this.isAvailable = isAvailable
@@ -17,6 +17,15 @@ class Book {
 
     getBookTitle() {
         return this.title;
+    }
+
+    toggleBookStatus(){
+        if(this.isAvailable === 0){
+            this.isAvailable = 1;
+        }
+        if(this.isAvailable === 1){
+            this.isAvailable = 0;
+        }
     }
 }
 
@@ -34,16 +43,26 @@ function addBooks (bookTitle, bookAuthor, isBookAvailable) {
     bookList.push(newBook);
 }
 
-function printBookList () {
-      
+function printBookList () {  
     bookList.forEach((book) => {
         console.log(book.getBookTitle() + ", " + book.getIsAvailable());
     });
 }
 
+function toggleAvailability(title){
+    //iterate through array of object, look into each object and see if title matches 
+    for(let book of bookList){
+        if (book.getBookTitle() === title){
+            book.toggleBookStatus();
+        }
+    }
+}
 
-// addBooks 
 
+
+/* TESTS */
 addBooks("Brown Bear", "", 1);
 addBooks("The Little Prince", "", 0);
+printBookList(); 
+toggleAvailability("Brown Bear");
 printBookList(); 
